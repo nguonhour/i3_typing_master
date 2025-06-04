@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test - i3 Typing Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-keyboard"></i></div>
+                <div class="logo-text">i3 Typing Master</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="typing-test.html" class="active">Typing Test</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons" id="auth-buttons">
+                <!-- Auth buttons by auth.js -->
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="typing-test-page-container" class="page-section"> <!-- Wrapper ID for typing.js -->
+            <div class="card typing-container">
+                <h2 class="page-title">Typing Test Challenge</h2>
+                
+                <div class="test-info">
+                    <div class="info-box">
+                        <div class="info-value" id="timer">60</div>
+                        <div class="info-label">SECONDS</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-value" id="wpm">0</div>
+                        <div class="info-label">WPM</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-value" id="accuracy">100%</div>
+                        <div class="info-label">ACCURACY</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-value" id="errors">0</div>
+                        <div class="info-label">ERRORS</div>
+                    </div>
+                </div>
+                
+                <div class="typing-instructions">
+                    <h3><i class="fas fa-info-circle"></i> How to take the test:</h3>
+                    <ul>
+                        <li>Click "Start Test" to begin the 60-second typing challenge.</li>
+                        <li>Type the text below exactly as you see it.</li>
+                        <li>Correct characters are highlighted in green, errors in red.</li>
+                        <li>Try to type as quickly and accurately as possible.</li>
+                        <li>Log in to save your results and track your progress over time!</li>
+                    </ul>
+                </div>
+                
+                <div class="typing-text-container">
+                    <div id="typing-text">The Institute of Technology of Cambodia (ITC), also known as Sala Techno, is a top public university in Phnom Penh specializing in engineering, science, and technology. Founded in 1964, it offers programs from undergraduate to doctoral levels. ITC emphasizes practical training and research, contributing to Cambodia’s development through innovation and global partnerships.
+                    </div>
+                </div>
+                
+                <textarea class="typing-input" id="typing-input" placeholder="Click 'Start Test' and begin typing here..." disabled></textarea>
+                
+                <div class="controls">
+                    <button id="start-test" class="btn btn-primary">Start Test</button>
+                    <button id="reset-test" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Results Modal (Shared structure, content updated by typing.js) -->
+    <div class="result-modal" id="result-modal">
+        <div class="modal-content">
+            <h2>Test Complete!</h2>
+            <p>Your typing results are ready.</p>
+            <p id="modal-save-message" style="font-size: 0.9em; color: var(--gray); margin-bottom:15px;"></p>
+            
+            <div class="result-stats">
+                <div class="result-stat">
+                    <div class="label">Words Per Minute</div>
+                    <div class="value" id="result-wpm">0</div>
+                </div>
+                <div class="result-stat">
+                    <div class="label">Accuracy</div>
+                    <div class="value" id="result-accuracy">0%</div>
+                </div>
+                <div class="result-stat">
+                    <div class="label">Errors</div>
+                    <div class="value" id="result-errors">0</div>
+                </div>
+                <div class="result-stat">
+                    <div class="label">Time Taken</div>
+                    <div class="value" id="result-time">0s</div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="close-modal" class="btn btn-primary">Continue</button>
+                <button id="try-again" class="btn btn-accent">Try Again</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="auth.js"></script>
+    <script src="typing.js"></script>
+    <script>
+        // Add active class to current page link in nav
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+  
+</body>
+</html>
