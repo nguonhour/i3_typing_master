@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results - SpeedType</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .results-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .results-card {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .result-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--gray-color);
+        }
+
+        .result-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .progress-chart {
+            width: 100%;
+            height: 300px;
+            margin: 2rem 0;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+        }
+
+        .progress-bar {
+            width: 40px;
+            background-color: var(--primary-color);
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .progress-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SpeedType</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="typing_test.html">Typing Test</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="results-container">
+        <h2>Your Typing Test Results</h2>
+        
+        <div class="results-card">
+            <div class="result-stats">
+                <div class="stat">
+                    <div class="stat-value" id="wpmResult">0</div>
+                    <div class="stat-label">Words Per Minute</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="accuracyResult">0%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="timeResult">0s</div>
+                    <div class="stat-label">Time</div>
+                </div>
+            </div>
+
+            <h3>Your Progress</h3>
+            <div class="progress-chart" id="progressChart">
+                <!-- Chart bars will be added by JavaScript -->
+            </div>
+
+            <div class="result-actions">
+                <a href="typing_test.html" class="btn primary">Try Again</a>
+                <a href="index.html" class="btn secondary">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 SpeedType. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Get results from localStorage
+        const results = JSON.parse(localStorage.getItem('lastTestResults')) || {
+            wpm: 0,
+            accuracy: 0,
+            time: 0,
+            date: new Date().toISOString()
+        };
+
+        // Display results
+        document.getElementById('wpmResult').textContent = results.wpm;
+        document.getElementById('accuracyResult').textContent = results.accuracy + '%';
+        document.getElementById('timeResult').textContent = results.time + 's';
+
+        // Create progress chart (mock data for demo)
+        const progressChart = document.getElementById('progressChart');
+        const mockResults = [
+            { wpm: Math.max(0, results.wpm - 15), date: '3 tests ago' },
+            { wpm: Math.max(0, results.wpm - 8), date: '2 tests ago' },
+            { wpm: Math.max(0, results.wpm - 3), date: 'Last test' },
+            { wpm: results.wpm, date: 'This test' }
+        ];
+
+        mockResults.forEach((result, index) => {
+            const bar = document.createElement('div');
+            bar.className = 'progress-bar';
+            bar.style.height = `${(result.wpm / Math.max(...mockResults.map(r => r.wpm))) * 100}%`;
+            
+            const label = document.createElement('div');
+            label.className = 'progress-label';
+            label.textContent = result.date;
+            
+            bar.appendChild(label);
+            progressChart.appendChild(bar);
+        });
+    </script>
+</body>
+</html>

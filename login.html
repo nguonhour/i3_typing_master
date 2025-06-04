@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SpeedType</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.auth-form {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 350px;
+}
+
+.auth-form h2 {
+    margin-bottom: 1.5rem;
+    color: #22223b;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a4e69;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #c9c9c9;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f8f9fa;
+    transition: border 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #5f6fff;
+    outline: none;
+}
+
+.btn.primary {
+    width: 100%;
+    padding: 0.8rem;
+    background: #5f6fff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn.primary:hover {
+    background: #3b47d1;
+}
+
+.auth-links {
+    margin-top: 1.2rem;
+    text-align: center;
+    font-size: 0.97rem;
+}
+
+.auth-links a {
+    color: #5f6fff;
+    text-decoration: none;
+    margin: 0 0.2rem;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SpeedType</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="typing_test.html">Typing Test</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-form">
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn primary">Login</button>
+            </form>
+            <div class="auth-links">
+                <a href="reset-password.html">Forgot password?</a>
+                <span>Don't have an account? <a href="register.html">Register</a></span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 SpeedType. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real app, this would send data to your backend
+            alert('Login functionality would be implemented here');
+            // For demo purposes, redirect to typing test
+            window.location.href = 'typing_test.html';
+        });
+    </script>
+</body>
+</html>
