@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SpeedType</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* About Page Styles */
+.about-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-content h3 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: var(--primary-color);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.team-member {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member h4 {
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    color: var(--gray-color);
+}
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SpeedType</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="typing_test.html">Typing Test</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="about-container">
+        <div class="about-content">
+            <h2>About SpeedType</h2>
+            <p>SpeedType is a free online typing test application designed to help you improve your typing speed and accuracy. Our mission is to provide a simple, effective tool for people of all skill levels to practice and measure their typing abilities.</p>
+            
+            <h3>Our Story</h3>
+            <p>Founded in 2023, SpeedType was created by a team of developers who recognized the importance of typing skills in today's digital world. Whether you're a student, professional, or just looking to improve your computer skills, we believe that efficient typing can save you time and boost your productivity.</p>
+            
+            <h3>How It Works</h3>
+            <p>Our typing test measures your words per minute (WPM) and accuracy as you type provided texts. You can track your progress over time, challenge yourself with different difficulty levels, and compare your results with others.</p>
+            
+            <h3>Meet The Team</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDd5nQB00wc-UjgxjjfbyOxW1Zx0vvINwlWY6758DYwWCl-YNKe8JWSTGNd83nIk6n3jI&usqp=CAU" alt="Team member">
+                    </div>
+                    <h4>John Doe</h4>
+                    <p>Founder & Developer</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEi-I3GVHBMBGydpvRpIsVoBG4v5qZW23xXZRt5EEeD7lUSgC2PEjNRs7dYELfevp3DCY&usqp=CAU" alt="Team member">
+                    </div>
+                    <h4>Jane Smith</h4>
+                    <p>UI/UX Designer</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS20dpaZU5m4OldPpris_UV80QDzxj3OERG3bx8jbZM38-qUSO-3Zv7o1BS3CKcqarSmZ8&usqp=CAU" alt="Team member">
+                    </div>
+                    <h4>Mike Johnson</h4>
+                    <p>Backend Developer</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 SpeedType. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
